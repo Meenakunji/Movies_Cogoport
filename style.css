@@ -21,18 +21,18 @@ header {
 }
 
 .movie-card {
-    cursor: pointer;
-    width: 350px;
+    
+    width: 108%;
     height: 350px;
-
     margin: 20px 10px;
+    margin-bottom: 124px;
 }
 
 .movie-card img {
-    /* width: 100%;
-    height: auto; */
+     width: 100%;
+    height: auto;
     height: 300px;
-    width: 300px;
+    /* width: 60%; */
 }
 
 /* .pagination {
@@ -45,6 +45,7 @@ header {
     margin-bottom: 22px;
     display: flex;
     justify-content: center;
+    padding: 21px;
 }
 
 .pagination button {
@@ -97,13 +98,19 @@ header {
 }
 
 button{
-    background-color: orchid; /* Green */
+    cursor: pointer;
+    background-color: orchid;
     border: none;
-    color: darkslateblue;
-    padding: 15px 32px;
+    color: white;
+    padding: 10px 11px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    border-radius: 3px;
+}
+
+h3{
+    width: 100%;
 }
 

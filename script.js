@@ -38,7 +38,7 @@ function fetchMovies(page) {
       } else {
         displayMovies([]);
         displayPagination(0, page);
-        alert("No movies found!");
+        //alert("No movies found!");
       }
     })
     .catch((error) => {
@@ -56,6 +56,10 @@ function displayMovies(movies) {
     movieCard.innerHTML = `
             <img src="${movie.Poster}" alt="${movie.Title}">
             <h3>${movie.Title}</h3>
+            <div class="rating-comment">
+        <p class="user-rating">Your Rating: ${getSavedRating(movie.imdbID) || '-'}</p>
+        <p class="user-comment">Your Comment: ${getSavedComment(movie.imdbID) || '-'}</p>
+      </div>
         `;
 
     const btn = document.createElement("button");
@@ -68,13 +72,24 @@ function displayMovies(movies) {
     movieContainer.appendChild(movieCard);
   });
 
-    
-    // movieCard.appendChild(userCommentInput);
-    // movieCard.appendChild(saveRatingCommentBtn);
 
-    
-//   });
 }
+
+// Helper function to get saved user rating from local storage for a specific movie
+function getSavedRating(imdbID) {
+    const data = localStorage.getItem("movieRatingsComments");
+    const savedData = data ? JSON.parse(data) : {};
+    return savedData[imdbID] ? savedData[imdbID].rating : null;
+  }
+  
+  // Helper function to get saved user comment from local storage for a specific movie
+  function getSavedComment(imdbID) {
+    const data = localStorage.getItem("movieRatingsComments");
+    const savedData = data ? JSON.parse(data) : {};
+    return savedData[imdbID] ? savedData[imdbID].comment : null;
+  }
+
+
 
 function displayPagination(totalResults, currentPage) {
   const paginationContainer = document.getElementById("pagination");
@@ -185,8 +200,7 @@ function displayMovieDetails(imdbID) {
         const comment = userCommentInput.value.trim();
         if (rating >= 1 && rating <= 5 && comment !== "") {
           saveUserRatingAndComment(imdbID, rating, comment);
-         `Rating : ${modalContent.appendChild(userRatingInput)};`
-          `Comment : ${modalContent.appendChild(userCommentInput)};`
+       
           alert("Rating and comment saved successfully!");
         } else {
           alert("Please provide a valid rating (1-5 stars) and a comment.");
