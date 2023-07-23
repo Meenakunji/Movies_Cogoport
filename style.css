@@ -8,7 +8,9 @@ header {
     background-color: #333;
     color: #fff;
     padding: 20px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .movie-container {
@@ -20,11 +22,17 @@ header {
 
 .movie-card {
     cursor: pointer;
+    width: 350px;
+    height: 350px;
+
+    margin: 20px 10px;
 }
 
 .movie-card img {
-    width: 100%;
-    height: auto;
+    /* width: 100%;
+    height: auto; */
+    height: 300px;
+    width: 300px;
 }
 
 /* .pagination {
@@ -87,3 +95,15 @@ header {
 .search-container button {
     padding: 5px 10px;
 }
+
+button{
+    background-color: orchid; /* Green */
+    border: none;
+    color: darkslateblue;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
