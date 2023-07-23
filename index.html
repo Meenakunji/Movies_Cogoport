@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie List Application</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Movie List Application</h1>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search movies...">
+            <button id="search-btn">Search</button>
+        </div>
+    </header>
+    <div class="movie-container" id="movie-container">
+        <!-- Movies will be displayed here -->
+    </div>
+    <div class="pagination" id="pagination">
+        <!-- Pagination buttons will be displayed here -->
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content" id="modal-content">
+            <!-- Movie details will be displayed here -->
+            <span class="close-btn" id="close-btn">&times;</span>
+            <h2 id="movie-title"></h2> 
+        </div>
+        <!-- <p><strong>Year:</strong> <span id="movie-year"></span></p>
+        <p><strong>Director:</strong> <span id="movie-director"></span></p>
+        <p><strong>Plot:</strong> <span id="movie-plot"></span></p> -->
+        <!-- Add other movie details here -->
+         <div> this is seprated</div>
+
+
+        <label for="user-rating">Your Rating (1-5 stars):</label>
+        <input type="number" id="user-rating" value="2" min="1" max="5">
+
+        <input type="button" value="6">
+
+        <label for="user-comment">Your Comment:</label>
+        <textarea id="user-comment"></textarea>
+
+        <button id="save-rating-comment-btn">Save Rating & Comment</button>
+
+
+        <!-- </div> -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
