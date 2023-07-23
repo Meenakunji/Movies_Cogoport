@@ -1,4 +1,4 @@
-const apiKey = "727acad8"; // Replace this with your actual OMDB API key
+const apiKey = "727acad8"; 
 const itemsPerPage = 10;
 const baseurl = "https://www.omdbapi.com/";
 let currentPage = 1;
@@ -11,9 +11,7 @@ function fetchMovies(page) {
 
   const apiUrl = `https://www.omdbapi.com/?apikey=${apiKey}&s=${searchTerm}&type=movie&page=${page}`;
 
-  //const apiUrl = `${baseurl}?s=${searchTerm}&apikey=${apiKey}&page=${page}`;
-
-  //const apiUrl = `${baseurl}?s=${searchTerm}&apikey=${apiKey}&type=movie&page=${page}`;
+  
 
   fetch(apiUrl)
     .then((response) => response.json())
@@ -33,8 +31,7 @@ function fetchMovies(page) {
           }
         }
 
-        // displayMovies(currentMovies);
-        // displayPagination(data.totalResults, page);
+        
       } else {
         displayMovies([]);
         displayPagination(0, page);
@@ -75,14 +72,14 @@ function displayMovies(movies) {
 
 }
 
-// Helper function to get saved user rating from local storage for a specific movie
+//function to get saved user rating from local storage for a specific movie
 function getSavedRating(imdbID) {
     const data = localStorage.getItem("movieRatingsComments");
     const savedData = data ? JSON.parse(data) : {};
     return savedData[imdbID] ? savedData[imdbID].rating : null;
   }
   
-  // Helper function to get saved user comment from local storage for a specific movie
+  //  function to get saved user comment from local storage for a specific movie
   function getSavedComment(imdbID) {
     const data = localStorage.getItem("movieRatingsComments");
     const savedData = data ? JSON.parse(data) : {};
@@ -205,15 +202,7 @@ function displayMovieDetails(imdbID) {
         } else {
           alert("Please provide a valid rating (1-5 stars) and a comment.");
         }
-        // const savedData = getSavedData(imdbID);
-        // if (savedData) {
-        //   userRatingInput.value = savedData.rating;
-        //   userCommentInput.value = savedData.comment;
-        //   alert("You have already Given");
-        // } else {
-        //   userRatingInput.value = "";
-        //   userCommentInput.value = "";
-        // }
+      
       });
 
 
@@ -238,7 +227,7 @@ function saveUserRatingAndComment(imdbID, rating, comment) {
     localStorage.setItem('movieRatingsComments', JSON.stringify(updatedData));
 }
 
- // Helper function to get saved user ratings and comments from local storage for a specific movie
+ //function to get saved user ratings and comments from local storage for a specific movie
 function getSavedData(imdbID) {
     const data = localStorage.getItem("movieRatingsComments");
     const savedData = data ? JSON.parse(data) : {};
